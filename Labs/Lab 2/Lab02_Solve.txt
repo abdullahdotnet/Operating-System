@@ -1,0 +1,68 @@
+**Lab 02 OS**
+
+					**Man Pages**
+Task 01:
+1. id : Prints user and group information 
+| uid=1000(zubair) gid=1000(zubair) groups=1000(zubair),999(vboxsf)
+2. uname -r: prints the kernel release of the operating system 
+| 5.15.0-67-generic
+3. whoami: prints the effective username of the current user
+| zubair
+4. ls -l: lists directory contents in long format. Shows permissions, owner, group, size and updated timestamp.
+| -rw-rw-r-- 1 zubair zubair 2929 جولائی  3 13:29 pass.txt
+| -rw-rw-r-- 1 zubair zubair 2929 جولائی  3 13:29 pass.txt
+5. ifconfig: Cannot find it, need to install external library(apt install net-tools). TA allowed to skip this one.
+
+Task 02:
+man 1 write: For write command (user command), section 1
+man 2 write: For write system call, section 2
+
+Task03:
+man /etc/passwd | man 5 passwd (file section) | It has seven fields.
+login name
+optional encrypted password
+numerical user ID
+numerical group ID
+user name or comment field
+user home directory
+optional user command interpreter
+  
+ 
+  
+				**Linux Environment**
+Task 01:
+1. sort passwdfile.txt -t ':' -k 3 > third_col.txt
+2. sort passwdfile.txt -t ':' -r -k 3 > third_col_r.txt
+3. sort -t ':' -k 1 -n passwdfile.txt > first_col
+
+Task 02:
+1. ls -lS /etc | head -n 1 | wc -w
+| Sorting based on size, using head to select the first one, using word count to find the arguments.
+| I am getting 2 as a result
+2. wc -l /etc/passwd | answer = 49
+3. grep -v "root" /etc/passwd
+
+Task 03:
+1. awk -F: '{print $1, $3, $5}' /etc/passwd
+2. echo "1234567890" | cut -b 1-5
+| -b flag selects bytes instead of position. As a result of this we will get 12345
+
+Task 04:
+1. 
+i) whatis is giving one line description
+ii) whereis locates the binary, source, and manual pages for a command or file.
+iii) which shows the path of the executable that would be executed if the command tar were entered.
+iv) man displays the manual page for a given command.
+
+2. head -n 3 /etc/passwd
+3. tail -n 3 /etc/passwd
+
+Task 05:
+i) tar -cvf mywork.tar ~/a*.c ~/a*.java
+ii) gzip mywork.tar
+
+
+
+
+
+
